@@ -45,11 +45,10 @@ Edit your `.env` file and add your API keys:
 
 ```env
 # YouTube Data API
-YOUTUBE_API_KEY=your_youtube_api_key_here
+YOUTUBE_API_KEY=AIzaSyB13Gxj0h_kKMxNDFl0WiibGVemUKt1GeA
 
 # OpenAI API
-OPENAI_API_KEY=your_openai_api_key_here
-
+OPENAI_API_KEY=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
 # Optional: Set default locale
 APP_LOCALE=en
 ```
