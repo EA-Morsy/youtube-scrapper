@@ -21,7 +21,7 @@ return [
 
     // Playlist cards
     'videos' => 'فيديوهات',
-    'view_playlist' => 'عرض القائمة',
+    'view_playlist' => 'عرض الدورة',
 
     // Pagination
     'previous' => 'السابق',

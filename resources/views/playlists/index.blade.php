@@ -91,9 +91,7 @@
                     @endif
                 </div>
 <!-- Categories Section -->
-{{-- <div class="row mt-4"> --}}
-    {{-- <div class="col-12"> --}}
-        {{-- <div class="card surface-card"> --}}
+
             <div class="card-body p-4">
                 <div class="mb-4">
                     {{-- <h5 class="fw-bold mb-2">{{ __('messages.discovered_courses') }}</h5> --}}
@@ -124,30 +122,35 @@
                     </div>
                 </div>
             </div>
-        {{-- </div> --}}
-    {{-- </div> --}}
-{{-- </div> --}}
+
                 <div id="playlistsContainer">
                     <div class="row g-3 mt-4">
                         @forelse($playlists as $playlist)
                             <div class="col-md-6 col-lg-3 d-flex">
                                 <div class="card surface-card playlist-card flex-fill h-100">
+                                
                                     <img src="{{ $playlist->thumbnail ?? asset('images/default-playlist.jpg') }}" 
+                                    
                                          class="card-img-top" 
                                          alt="{{ $playlist->title }}"
                                          style="height: 180px; object-fit: cover;">
                                     <div class="card-body d-flex flex-column">
+                                      
                                         <h6 class="card-title fw-semibold mb-2">{{ Str::limit($playlist->title, 50) }}</h6>
                                         <p class="card-text small text-muted mb-3 flex-grow-1">{{ Str::limit($playlist->description, 80) }}</p>
-                                        <div class="d-flex align-items-center justify-content-between mb-3">
-                                            <div class="small text-muted">
+                                         <div class="small text-muted" style="min-height: 20px; display: flex; align-items: center;">
                                                 <i class="fas fa-user me-1"></i> {{ $playlist->channel_name }}
                                             </div>
-                                            @if($playlist->video_count)
-                                                <span class="badge bg-primary small">
-                                                    {{ $playlist->video_count }} {{ __('messages.videos') }}
+                                        <div class="d-flex justify-content-between mb-3" style="min-height: 40px;">
+                                           
+                                            <div class="d-flex gap-2 align-items-center" style="display: flex; align-items: center;">
+                                                <span class="badge bg-danger small">
+                                                    {{ $playlist->video_count ?? 0 }} {{ __('messages.videos') }}
                                                 </span>
-                                            @endif
+                                                <span class="badge bg-secondary category-badge">
+                                                    {{ $playlist->category?->name ?? '-' }}
+                                                </span>
+                                            </div>
                                         </div>
                                         <div class="mt-auto">
                                             <a href="https://youtube.com/playlist?list={{ $playlist->playlist_id }}" 
@@ -401,6 +404,34 @@
         background: #bb2d3b;
         border-color: #bb2d3b;
         color: white;
+    }
+
+    .category-badge {
+        font-size: 0.7rem;
+        font-weight: 500;
+        padding: 0.25rem 0.5rem;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #6c757d, #5a6268) !important;
+        border: none;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        min-width: 60px;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    .playlist-card .badge.bg-primary {
+        font-size: 0.7rem;
+        font-weight: 500;
+        padding: 0.25rem 0.5rem;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #0d6efd, #0056b3) !important;
+        border: none;
+        min-width: 60px;
+        text-align: center;
+        white-space: nowrap;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
 </style>
 @endpush
