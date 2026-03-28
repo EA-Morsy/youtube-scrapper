@@ -28,7 +28,7 @@ A Laravel-based web application that discovers educational YouTube playlists usi
 
 ```bash
 git clone <repository-url>
-cd youtube-scraper
+cd youtube-scrapper
 composer install
 ```
 
@@ -76,13 +76,12 @@ APP_LOCALE=en
 # For SQLite (default)
 php artisan migrate
 
-# For MySQL/PostgreSQL, update .env first:
-# DB_CONNECTION=mysql
-# DB_HOST=127.0.0.1
-# DB_PORT=3306
-# DB_DATABASE=youtube_scraper
-# DB_USERNAME=your_username
-# DB_PASSWORD=your_password
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=youtube-scrapper
+DB_USERNAME=root
+DB_PASSWORD=
 
 # Then run migrations
 php artisan migrate
